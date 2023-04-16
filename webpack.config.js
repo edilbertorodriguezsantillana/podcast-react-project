@@ -3,6 +3,7 @@ const prod = process.env.NODE_ENV === 'production';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
 	mode: prod ? 'production' : 'development',
@@ -10,12 +11,19 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, './dist'),
 		filename: 'bundle.js',
+		publicPath: '/',
 	},
 	devServer: {
 		port: 8080,
+		static: path.resolve(__dirname, './dist'),
+		hot: true,
+		historyApiFallback: true,
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
+		alias: {
+			'@': path.resolve(__dirname, './src/'),
+		},
 	},
 	module: {
 		rules: [
@@ -41,5 +49,6 @@ module.exports = {
 			template: path.join(__dirname, 'public', 'index.html'),
 		}),
 		new MiniCssExtractPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
 	],
 };
