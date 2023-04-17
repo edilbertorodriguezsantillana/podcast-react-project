@@ -1,3 +1,4 @@
+import { usePodcast } from '@/features/podcasts';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -6,11 +7,17 @@ const Episode = () => {
 		podcastId: string;
 		episodeId: string;
 	};
+	const { data: podcast } = usePodcast({ podcastId });
+
+	const episodeData = podcast?.episodes.find(
+		({ id }) => id === Number(episodeId)
+	);
 
 	return (
 		<div>
-			<div>Podcast: {podcastId}</div>
-			<div>Episode: {episodeId}</div>
+			<div>{episodeData?.title}</div>
+			<div>{episodeData?.description}</div>
+			<div>{episodeData?.episodeUrl}</div>
 		</div>
 	);
 };

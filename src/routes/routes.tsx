@@ -1,16 +1,17 @@
+import { MainLayout } from '@/layouts/main-layout';
 import { Fallback } from '@/providers/fallback';
 import React, { lazy } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 
-const Home = lazy(async () => await import('@/pages/home'));
-const PodcastsRoutes = lazy(
-	async () => await import('@/features/podcasts/routes')
-);
+const Home = lazy(() => import('@/pages/home'));
+const PodcastsRoutes = lazy(() => import('@/features/podcasts/routes'));
 
 const AppProtected = () => (
-	<Fallback>
-		<Outlet />
-	</Fallback>
+	<MainLayout>
+		<Fallback>
+			<Outlet />
+		</Fallback>
+	</MainLayout>
 );
 
 export const routes = [
