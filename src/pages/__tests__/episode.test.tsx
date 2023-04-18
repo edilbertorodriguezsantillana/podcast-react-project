@@ -1,5 +1,5 @@
-import { render, screen } from '@/test/test-utils';
 import React from 'react';
+import { render, screen } from '@/test/test-utils';
 import Episode from '../episode';
 import { episodeTitleTest, podcast1535809341ApiResponse } from '@/test/config';
 

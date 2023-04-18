@@ -1,0 +1,13 @@
+.episode-item__tr {
+    border-bottom: 1px solid #b8b8b8;
+}
+
+.episode-item__th {
+    text-align: left;
+    color: #0e7490;
+    cursor: pointer;
+}
+
+.episode-item__duration-td {
+    text-align: center;
+}

@@ -1,5 +1,6 @@
-import { usePodcast } from '@/features/podcasts';
 import React from 'react';
+import { EpisodeCard } from '@/features/episodes';
+import { usePodcast } from '@/features/podcasts';
 import { useParams } from 'react-router-dom';
 
 const Episode = () => {
@@ -13,12 +14,14 @@ const Episode = () => {
 		({ id }) => id === Number(episodeId)
 	);
 
+	if (!episodeData) return null;
+
 	return (
-		<div>
-			<div>{episodeData?.title}</div>
-			<div>{episodeData?.description}</div>
-			<div>{episodeData?.episodeUrl}</div>
-		</div>
+		<EpisodeCard
+			title={episodeData?.title}
+			description={episodeData?.description}
+			episodeUrl={episodeData?.episodeUrl}
+		/>
 	);
 };
 

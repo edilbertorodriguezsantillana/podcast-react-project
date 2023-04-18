@@ -1,24 +1,24 @@
-import { usePodcast } from '@/features/podcasts';
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { usePodcast } from '@/features/podcasts';
+import { useParams } from 'react-router-dom';
+import './styles/podcast.css';
+import { Episodes } from '@/features/episodes';
 
 const Podcast = () => {
 	const { podcastId } = useParams() as { podcastId: string };
 	const { data: podcast } = usePodcast({ podcastId });
 
+	if (!podcast?.episodes) return null;
+
 	return (
-		<div>
-			<div>
-				<div>Episodes: {podcast?.episodes?.length}</div>
-				{podcast?.episodes.map(episode => (
-					<Link to={`episode/${episode.id}`} key={episode.id}>
-						<div>{episode.title}</div>
-						<div>{episode.date}</div>
-						<div>{episode.duration}</div>
-					</Link>
-				))}
+		<>
+			<div className='episodes-amount-title'>
+				Episodes: {podcast?.episodes?.length}
 			</div>
-		</div>
+			<div className='episodes-list-container'>
+				<Episodes episodes={podcast.episodes} />
+			</div>
+		</>
 	);
 };
 

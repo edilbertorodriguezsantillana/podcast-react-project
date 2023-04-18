@@ -1,0 +1,15 @@
+.podcast-layout-container {
+    display: flex;
+
+}
+
+.podcast-layout-container__card {
+    width: 25%;
+    padding: 1rem;
+}
+
+.podcast-layout-container__children {
+    width: 75%;
+    padding: 1rem;
+    padding-left: 10rem;
+}

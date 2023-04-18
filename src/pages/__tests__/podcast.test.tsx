@@ -1,5 +1,5 @@
-import { render, screen } from '@/test/test-utils';
 import React from 'react';
+import { render, screen } from '@/test/test-utils';
 import { episodeTitleTest, podcast1535809341ApiResponse } from '@/test/config';
 import Podcast from '../podcast';
 
@@ -18,7 +18,7 @@ test('should show episodes of the podcast with id 1535809341 fetched with apiCli
 	const episodeTitle = await screen.findByText(episodeTitleTest);
 	expect(episodeTitle).toBeInTheDocument();
 
-	const episodeDate = screen.getByText(/2023-03-21T19:45:00Z/i);
+	const episodeDate = screen.getByText('13/4/2023');
 	expect(episodeDate).toBeInTheDocument();
 
 	const episodesAmount = screen.getByText('Episodes: 5');

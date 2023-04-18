@@ -1,0 +1,25 @@
+.search-section {
+    display: flex;
+    gap: 0.7rem;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.search-section__podcasts-amount {
+    background-color: #0e7490;
+    padding: 0.2rem;
+    color: white;
+    font-weight: 700;
+    border-radius: 0.2rem;
+}
+
+.search-section__input {
+    padding: 0.5rem;
+}
+
+.podcasts-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+}

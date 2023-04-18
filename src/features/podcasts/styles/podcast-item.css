@@ -1,0 +1,37 @@
+.podcast-item {
+    max-width: 35rem;
+    margin: 0 auto 2rem auto;
+    width: 100%;
+    cursor: pointer;
+}
+
+.podcast-item__image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.podcast-item__image {
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: -4rem;
+}
+
+.podcast-item__content {
+    margin: 0 auto;
+    padding: 1rem;
+    padding-top: 5rem;
+    box-shadow: 0 3px 5px #c6c6c6;
+    text-align: center;
+}
+
+.podcast-item__title {
+    font-weight: 600;
+}
+
+.podcast-item__author {
+    cursor: pointer;
+    color: grey;
+    font-size: 1rem;
+    margin-top: 1rem;
+}

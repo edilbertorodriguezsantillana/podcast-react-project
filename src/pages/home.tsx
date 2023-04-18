@@ -1,7 +1,7 @@
-import { usePodcasts } from '@/features/podcasts';
+import { PodcastItem, usePodcasts } from '@/features/podcasts';
 import { type Podcast } from '@/types';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import './styles/home.css';
 
 const Home = () => {
 	const { data } = usePodcasts();
@@ -24,21 +24,20 @@ const Home = () => {
 
 	return (
 		<div>
-			<div>{podcasts?.length}</div>
-			<input value={search} onChange={e => setSearch(e.target.value)} />
-			<div
-				style={{
-					display: 'grid',
-					gridTemplateColumns: 'repeat(4, 1fr)',
-					gridGap: '10px',
-				}}
-			>
-				{podcasts?.map(({ id, title, author, image }) => (
-					<Link to={`/podcast/${id}`} key={id}>
-						<img src={image} />
-						<div>{title}</div>
-						<div>{author}</div>
-					</Link>
+			<div className='search-section'>
+				<div className='search-section__podcasts-amount'>
+					{podcasts?.length}
+				</div>
+				<input
+					className='search-section__input'
+					value={search}
+					onChange={e => setSearch(e.target.value)}
+					placeholder='Filter podcasts...'
+				/>
+			</div>
+			<div className='podcasts-container'>
+				{podcasts?.map(podcast => (
+					<PodcastItem key={podcast.id} {...podcast} />
 				))}
 			</div>
 		</div>

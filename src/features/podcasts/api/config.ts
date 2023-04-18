@@ -31,7 +31,7 @@ export const getPodcasts = async (): Promise<Podcast[]> => {
 			title: podcast['im:name'].label,
 			author: podcast['im:artist'].label,
 			description: podcast.summary.label,
-			image: podcast['im:image'][0].label,
+			image: podcast['im:image'][1].label,
 		}));
 		storage.setPodcasts(JSON.stringify(podcastsData));
 		storage.setPodcastsFetchedTime();

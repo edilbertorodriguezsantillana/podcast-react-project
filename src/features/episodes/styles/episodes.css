@@ -1,0 +1,8 @@
+.episodes__tr-thead {
+    text-align: left;
+    border-bottom: 1.5px solid #b8b8b8;
+}
+
+.episodes__duration-th {
+    text-align: center;
+}
