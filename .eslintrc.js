@@ -2,6 +2,7 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
+		'jest/globals': true,
 	},
 	settings: {
 		react: {
@@ -10,6 +11,7 @@ module.exports = {
 	},
 	extends: [
 		'plugin:react/recommended',
+		'plugin:jest/recommended',
 		'standard-with-typescript',
 		'eslint-config-prettier',
 	],
@@ -19,7 +21,7 @@ module.exports = {
 		sourceType: 'module',
 		project: ['./tsconfig.json'],
 	},
-	plugins: ['react'],
+	plugins: ['react', 'jest'],
 	rules: {
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		'react/react-in-jsx-scope': 'off',
