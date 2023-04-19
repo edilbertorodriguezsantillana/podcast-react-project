@@ -6,3 +6,5 @@
 
 #test
 /coverage
+/cypress/videos
+/cypress/screenshots
